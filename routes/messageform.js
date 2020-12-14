@@ -22,13 +22,13 @@ router.get("/admin/start/messages", async (req, res) => {
 });
 
 // get the info from Id to respond message
-router.get("/admin/addMessage/:id", async (req, res) => {
+router.get("/admin/message/add/:id", async (req, res) => {
   const id = await Message.findById({ _id: req.params.id });
   res.send(id);
 });
 
 // respond with email
-router.post("/admin/addMessage/:id", async (req, res) => {
+router.post("/admin/message/add", async (req, res) => {
   const message = await new Message({
     regnumber: req.body.regnumber,
     name: req.body.name,
@@ -38,7 +38,7 @@ router.post("/admin/addMessage/:id", async (req, res) => {
   res.send(message);
 });
 // delete message from id
-router.delete("/admin/delete/:id", async (req, res) => {
+router.delete("/admin/message/delete/:id", async (req, res) => {
   const id = await Message.findByIdAndDelete({
     _id: req.params.id,
   });
