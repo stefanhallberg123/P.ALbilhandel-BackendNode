@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const userForm = require("./routes/userForm");
+const messages = require("./routes/messageform");
 
 require("dotenv").config();
 
@@ -15,10 +15,9 @@ app.use(
   })
 );
 
-app.use(userForm);
+app.use(messages);
 
 const uri = process.env.ATLAS_URI;
-
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
