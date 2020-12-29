@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const Message = new mongoose.Schema({
   regnumber: { type: String },
+  subject: { type: String },
   name: { type: String },
   email: { type: String },
   description: { type: String },
