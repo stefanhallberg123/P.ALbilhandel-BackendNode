@@ -11,8 +11,8 @@ let transporter = nodemailer.createTransport({
     ciphers: "SSLv3",
   },
   auth: {
-    user: "stefanhalllberg@live.se",
-    pass: "zlatan111",
+    user: process.env.user,
+    pass: process.env.pass,
   },
 });
 transporter.verify(function (error, success) {
@@ -43,17 +43,12 @@ router.get("/admin/messages", async (req, res) => {
 
 // get the info from Id to respond message
 router.get("/admin/messages/add/:id", async (req, res) => {
-<<<<<<< HEAD
   const id = await Message.find({ _id: req.params.id });
-=======
-  const id = await Message.findById({ _id: req.params.id });
->>>>>>> 35e2a7268749ec0d0781cff2b0133e8c5912f89d
   res.send(id);
 });
 
 // respond with email
 router.post("/admin/message/add/:id", async (req, res) => {
-<<<<<<< HEAD
   var email = req.body.email;
   var answer = req.body.answer;
   var subject = req.body.subject;
@@ -78,17 +73,6 @@ router.post("/admin/message/add/:id", async (req, res) => {
       });
     }
   });
-=======
-  const message = await new Message({
-    regnumber: req.body.regnumber,
-    subject: req.body.subject,
-    name: req.body.name,
-    email: req.body.email,
-    description: req.body.description,
-  }).save();
-  console.log(message);
-  res.send(message);
->>>>>>> 35e2a7268749ec0d0781cff2b0133e8c5912f89d
 });
 // delete message from id
 router.delete("/admin/messages/:id", async (req, res) => {
