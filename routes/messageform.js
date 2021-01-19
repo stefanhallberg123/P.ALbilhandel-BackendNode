@@ -83,8 +83,7 @@ router.post("/admin/message/add/:id", async (req, res) => {
     from: "stefanhalllberg@live.se",
     to: email,
     subject: subject,
-    // text: answer,
-    html: ` ${answer} <br /><br /> <br /> <p> Mvh P.ALbilhandel </p> `,
+    text: answer,
   };
   console.log(mail);
   res.send(mail);
