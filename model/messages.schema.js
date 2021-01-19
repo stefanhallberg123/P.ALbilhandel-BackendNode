@@ -7,6 +7,7 @@ const Message = new mongoose.Schema({
   email: { type: String },
   description: { type: String },
   id: { type: mongoose.Schema.Types.ObjectId },
+  dataConsent: { type: Boolean },
 });
 
 const MessageSchema = mongoose.model("message", Message);
